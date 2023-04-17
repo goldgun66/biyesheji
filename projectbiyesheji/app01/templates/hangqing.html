@@ -1,0 +1,48 @@
+{% extends 'layout.html' %} {% block content %}
+<div class="container">
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">
+      <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+      行情查看
+    </div>
+    <!-- Table -->
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>股票代码</th>
+          <th>股票名称</th>
+        
+       
+        </tr>
+      </thead>
+      <tbody>
+        {% for obj in queryset %}
+        <tr>
+          <th>{{ obj.id }}</th>
+
+          <td>{{ obj.symbol }}</td>
+
+          <td>{{ obj.name }}</td>
+
+  
+          <td>
+            <a class="btn btn-primary btn-xs" href="/news/{{obj.id}}/check/"
+              >查看</a
+            >
+       
+            
+          </td>
+        </tr>
+        {% endfor %}
+
+  
+      </tbody>
+    </table>
+      <ul class="pagination">
+        {{ page_string }}
+    </ul>
+  </div>
+</div>
+{% endblock %}

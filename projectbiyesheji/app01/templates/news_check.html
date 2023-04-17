@@ -1,0 +1,27 @@
+{% extends 'layout.html' %} {% block content %}
+<style>
+p{ 
+	text-indent:2em;
+}
+</style>
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">{{title}}</h3>
+    </div>
+    <div class="panel-body">
+      <form method="post" novalidate>
+        {% csrf_token %} 
+        
+        <div class="form-group">
+          <h1>{{form.title}}</h1>
+          <p><font face="宋体"  >{{form.text}}</font></p>
+          {% comment %} {{field.errors.0}} {% endcomment %}
+        </div>
+      
+        <a type="button" class="btn btn-primary" href="/news/">返 回</a>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
